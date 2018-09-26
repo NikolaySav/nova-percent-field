@@ -38,3 +38,4 @@ public function fields(Request $request)
                         ->displayPercentSign(true) // true by default
     ];
 }
+```
