@@ -1,7 +1,7 @@
-# nova-percent-field
+# Percent field for Laravel Nova
  Laravel Nova field for displaying percents
  
-Sometimes percents are stored in the database in decimal form (f.e. 0.1615 which equals to 16.15%).
+Usually percents are stored in the database in a decimal form (e.g. 0.1615 which equals to 16.15%).
 In order to simplify formatting one can use this package.
 
 ### 1. Index view
