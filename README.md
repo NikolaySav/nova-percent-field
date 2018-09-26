@@ -1,8 +1,11 @@
 # nova-percent-field
  Laravel Nova field for displaying percents
 
+1. Index view
 ![screenshot 1](https://raw.githubusercontent.com/NikolaySav/nova-percent-field/master/docs/index.png)
+2. Detailed view
 ![screenshot 1](https://raw.githubusercontent.com/NikolaySav/nova-percent-field/master/docs/detailed.png)
+3. Form view
 ![screenshot 1](https://raw.githubusercontent.com/NikolaySav/nova-percent-field/master/docs/form.png)
 
 ## Installation
