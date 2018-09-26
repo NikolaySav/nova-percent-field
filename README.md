@@ -1,6 +1,8 @@
 # nova-percent-field
  Laravel Nova field for displaying percents
 
+![screenshot 1](https://raw.githubusercontent.com/NikolaySav/nova-percent-field/docs/detailed.png)
+
 ## Installation
 
 You can install the package into a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
