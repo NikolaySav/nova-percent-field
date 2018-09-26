@@ -46,7 +46,8 @@ class Percent extends Field
             $value = $request[$requestAttribute];
 
             if ($this->storedInDecimal) {
-                $model->{$attribute} = bcdiv($value, $this->base, $this->precision);
+                logger(bcdiv($value, $this->base, $this->precision));
+                $model->{$attribute} = bcdiv($value, $this->base, strlen($value));
             } else {
                 $model->{$attribute} = $value;
             }
