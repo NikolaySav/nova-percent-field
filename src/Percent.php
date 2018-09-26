@@ -11,7 +11,7 @@ class Percent extends Field
     public $component = 'nova-percent-field';
 
     /**
-     * Percents are store in decimal form
+     * Percents are stored in decimal form
      * @var bool
      */
     public $storedInDecimal = true;
