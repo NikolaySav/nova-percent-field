@@ -37,7 +37,9 @@ class Percent extends Field
                 ]);
             }
 
-            if ($this->storedInDecimal) {
+            if ($this->nullable && is_null($value)) {
+                return null;
+            } else if ($this->storedInDecimal) {
                 return bcmul((string)$value, $this->base, $this->precision);
             }
 
@@ -45,8 +47,9 @@ class Percent extends Field
         })->fillUsing(function (NovaRequest $request, $model, $attribute, $requestAttribute) {
             $value = $request[$requestAttribute];
 
-            if ($this->storedInDecimal) {
-                logger(bcdiv($value, $this->base, $this->precision));
+            if ($this->nullable && is_null($value)) {
+                $model->{$attribute} = null;
+            } else if ($this->storedInDecimal) {
                 $model->{$attribute} = bcdiv($value, $this->base, strlen($value));
             } else {
                 $model->{$attribute} = $value;
