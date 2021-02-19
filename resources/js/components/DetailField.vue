@@ -9,7 +9,7 @@
         </div>
         <div class="w-3/4 py-4">
             <slot name="value">
-                <p class="text-90">{{ field.value }}<span v-if="field.displayPercentSign"> %</span></p>
+                <p class="text-90">{{ field.value }}<span v-if="field.displayPercentSign">&nbsp;%</span></p>
             </slot>
         </div>
     </div>

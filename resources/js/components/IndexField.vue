@@ -1,5 +1,5 @@
 <template>
-    <span>{{ field.value }}<span v-if="field.displayPercentSign"> %</span></span>
+    <span>{{ field.value }}<span v-if="field.displayPercentSign">&nbsp;%</span></span>
 </template>
 
 <script>
