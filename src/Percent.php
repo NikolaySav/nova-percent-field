@@ -7,11 +7,11 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Percent extends Field
 {
-
     public $component = 'nova-percent-field';
 
     /**
      * Percents are stored in decimal form
+     *
      * @var bool
      */
     public $storedInDecimal = true;
@@ -30,7 +30,6 @@ class Percent extends Field
         parent::__construct($name, $attribute, $resolveCallback);
 
         $this->resolveUsing(function ($value) {
-
             if ($this->displayPercentSign) {
                 $this->withMeta([
                     'displayPercentSign' => $this->displayPercentSign,
@@ -38,7 +37,7 @@ class Percent extends Field
             }
 
             if ($this->storedInDecimal) {
-                return bcmul((string)$value, $this->base, $this->precision);
+                return bcmul((string) $value, $this->base, $this->precision);
             }
 
             return $value;
