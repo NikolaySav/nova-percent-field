@@ -9,6 +9,9 @@
     "require": {
         "php": ">=7.1.0"
     },
+    "require-dev": {
+        "laravel/pint": "^1.2"
+    },
     "autoload": {
         "psr-4": {
             "Nsavinov\\NovaPercentField\\": "src/"
@@ -29,8 +32,5 @@
     "scripts": {
         "lint": "./vendor/bin/pint",
         "lint:check": "./vendor/bin/pint --test -v"
-    },
-    "require-dev": {
-        "laravel/pint": "^1.2"
     }
 }
