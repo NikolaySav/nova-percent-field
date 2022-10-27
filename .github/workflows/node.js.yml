@@ -21,14 +21,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: pnpm/action-setup@v2.2.3
-      with:
-        version: latest
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    - run: pnpm install --frozen-lockfile
-    - run: pnpm prod
-#    - run: pnpm lint
+        cache: 'yarn'
+    - run: yarn install
+    - run: yarn prod
+#    - run: yarn lint
