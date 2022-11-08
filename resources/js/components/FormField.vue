@@ -1,7 +1,14 @@
 <template>
-    <default-field :field="field">
-        <template slot="field">
-            <input :id="field.name" type="text"
+    <DefaultField
+      :field="field"
+      :errors="errors"
+      :show-help-text="showHelpText"
+      :full-width-content="fullWidthContent"
+    >
+        <template #field>
+            <input
+                :id="field.name"
+                type="text"
                 class="w-full form-control form-input form-input-bordered"
                 :class="errorClasses"
                 :placeholder="field.name"
@@ -12,7 +19,7 @@
                 {{ firstError }}
             </p>
         </template>
-    </default-field>
+    </DefaultField>
 </template>
 
 <script>

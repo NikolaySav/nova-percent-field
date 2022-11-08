@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nsavinov\NovaPercentField;
 
 use Laravel\Nova\Fields\Field;
@@ -10,7 +12,7 @@ class Percent extends Field
     public $component = 'nova-percent-field';
 
     /**
-     * Percents are stored in decimal form
+     * Percents are stored in decimal form.
      *
      * @var bool
      */
@@ -24,7 +26,7 @@ class Percent extends Field
 
     public function __construct(
         string $name,
-        string $attribute = null,
+        string|null $attribute = null,
         $resolveCallback = null
     ) {
         parent::__construct($name, $attribute, $resolveCallback);
@@ -53,28 +55,28 @@ class Percent extends Field
         });
     }
 
-    public function precision(int $value): Percent
+    public function precision(int $value): self
     {
         $this->precision = $value;
 
         return $this;
     }
 
-    public function base(string $value): Percent
+    public function base(string $value): self
     {
         $this->base = $value;
 
         return $this;
     }
 
-    public function storedInDecimal(bool $value = true): Percent
+    public function storedInDecimal(bool $value = true): self
     {
         $this->storedInDecimal = $value;
 
         return $this;
     }
 
-    public function displayPercentSign(bool $value = true): Percent
+    public function displayPercentSign(bool $value = true): self
     {
         $this->displayPercentSign = $value;
 
