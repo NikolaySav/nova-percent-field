@@ -28,8 +28,3 @@ jobs:
 
       - name: Build for production 🏗️
         run: yarn prod
-
-      - name: Check code with eslint 🚨
-        uses: reviewdog/action-eslint@v1
-        with:
-          fail_on_error: true
