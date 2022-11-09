@@ -12,9 +12,6 @@
         "php": ">=8.0",
         "laravel/nova": "^4.0"
     },
-    "require-dev": {
-        "laravel/pint": "^1.2"
-    },
     "autoload": {
         "psr-4": {
             "Nsavinov\\NovaPercentField\\": "src/"
@@ -33,7 +30,16 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "lint": "./vendor/bin/pint",
-        "lint:check": "./vendor/bin/pint --test -v"
+        "install:tools": [
+            "cd ./tools/pint && composer install"
+        ],
+        "lint": [
+            "@install:tools",
+            "./tools/pint/vendor/bin/pint"
+        ],
+        "lint:check":[
+            "@install:tools",
+            "./tools/pint/vendor/bin/pint --test -v"
+        ]
     }
 }

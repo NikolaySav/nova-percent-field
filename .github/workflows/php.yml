@@ -29,12 +29,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
     - name: Run Lint (Laravel Pint) -> https://laravel.com/docs/pint
       run: composer lint:check
-    
+
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
