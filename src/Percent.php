@@ -38,20 +38,27 @@ class Percent extends Field
                 ]);
             }
 
-            if ($this->storedInDecimal) {
-                return bcmul((string) $value, $this->base, $this->precision);
+            if ($this->nullable && $value === null) {
+                $value = null;
+            }
+
+            if ($this->storedInDecimal && $value !== null) {
+                $value = bcmul((string) $value, $this->base, $this->precision);
             }
 
             return $value;
         })->fillUsing(function (NovaRequest $request, $model, $attribute, $requestAttribute) {
             $value = $request[$requestAttribute];
 
-            if ($this->storedInDecimal) {
-                logger(bcdiv($value, $this->base, $this->precision));
-                $model->{$attribute} = bcdiv($value, $this->base, strlen($value));
-            } else {
-                $model->{$attribute} = $value;
+            if ($this->nullable && $value === null) {
+                $value = null;
             }
+
+            if ($this->storedInDecimal && $value !== null) {
+                $value = bcdiv($value, $this->base, strlen($value));
+            }
+
+            $model->{$attribute} = $value;
         });
     }
 

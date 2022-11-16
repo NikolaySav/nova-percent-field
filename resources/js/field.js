@@ -3,7 +3,7 @@ import DetailField from './components/DetailField'
 import FormField from './components/FormField'
 
 Nova.booting((app, store) => {
-  app.component('index-nova-percent-field', IndexField)
-  app.component('detail-nova-percent-field', DetailField)
-  app.component('form-nova-percent-field', FormField)
+    app.component('IndexNovaPercentField', IndexField)
+    app.component('DetailNovaPercentField', DetailField)
+    app.component('FormNovaPercentField', FormField)
 })

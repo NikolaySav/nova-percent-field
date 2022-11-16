@@ -8,15 +8,35 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
+        "nova:install": "npm --prefix='../../vendor/laravel/nova' ci",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "eslint . --fix --ext js,vue",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@vue/compiler-sfc": "^3.2.22",
+        "eslint": "^8.27.0",
+        "eslint-plugin-vue": "^9.7.0",
         "form-backend-validation": "^2.3.3",
+        "husky": "^8.0.2",
         "laravel-mix": "^6.0.41",
+        "lint-staged": "^13.0.3",
         "lodash": "^4.17.21",
         "postcss": "^8.3.11",
+        "prettier": "^2.7.1",
         "vue-loader": "^16.8.3"
     },
-    "dependencies": {}
+    "dependencies": {},
+    "lint-staged": {
+        "**/*.{js,vue}": [
+            "eslint --fix"
+        ],
+        "**/*.{css,md,json,scss,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/*.php": [
+            "composer lint"
+        ]
+    }
 }

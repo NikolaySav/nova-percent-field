@@ -29,16 +29,26 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "scripts": {
+        "post-install-cmd": [
+            "@install:tools"
+        ],
+        "post-update-cmd": [
+            "@install:tools"
+        ],
         "install:tools": [
             "cd ./tools/pint && composer install"
         ],
         "lint": [
-            "@install:tools",
             "./tools/pint/vendor/bin/pint"
         ],
-        "lint:check":[
-            "@install:tools",
+        "lint:check": [
             "./tools/pint/vendor/bin/pint --test -v"
         ]
     }
