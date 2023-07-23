@@ -1,5 +1,10 @@
 let mix = require('laravel-mix')
 
-mix.setPublicPath('dist')
-   .js('resources/js/field.js', 'js')
-   .sass('resources/sass/field.scss', 'css')
+require('./nova.mix')
+
+mix
+  .setPublicPath('dist')
+  .js('resources/js/field.js', 'js')
+  .vue({ version: 3 })
+  .css('resources/css/field.css', 'css')
+  .nova('nsavinov/nova-percent-field')
