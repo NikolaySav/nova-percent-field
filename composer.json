@@ -3,11 +3,14 @@
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "field",
+        "percent"
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=8.0",
+        "laravel/nova": "^4"
     },
     "autoload": {
         "psr-4": {
@@ -25,5 +28,28 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "@install:tools"
+        ],
+        "post-update-cmd": [
+            "@install:tools"
+        ],
+        "install:tools": [
+            "cd ./tools/pint && composer install"
+        ],
+        "lint": [
+            "./tools/pint/vendor/bin/pint"
+        ],
+        "lint:check": [
+            "./tools/pint/vendor/bin/pint --test -v"
+        ]
+    }
 }
